@@ -16,22 +16,80 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
 
-
-
+#include<stdio.h>
+#include<math.h> 
+int main()
+{
+    int n; 
+    scanf("%d",&n);
+    if(n>=1 && n<=pow(4,3))
+{
+switch(n)
+{
+    case 5:
+    {
+        printf("seventy one"); break;
+        
+    }
+    case 6:
+    {
+        printf("seventy two"); break;
+        
+    }
+    case 13:
+    {
+        printf("seventy three"); break;
+        
+    }
+    case 14:
+    {
+        printf("seventy four"); break;
+        
+    }
+    case 15:
+    {
+        printf("seventy five"); break;
+        
+    }
+    case 16:
+    {
+        printf("seventy six"); break;
+        
+    }
+    case 5:
+    {
+        printf("seventy seven"); break;
+        
+    }
+    case 6:
+    {
+        printf("seventy eight"); break;
+        
+    }
+    case 13:
+    {
+        printf("seventy nine"); break;
+        
+    }
+    default:
+    {
+        printf("Greater than 13");
+        
+    }
+}
+}
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="853" height="256" alt="image" src="https://github.com/user-attachments/assets/8e245f45-730f-4412-b44c-6943df7ecb35" />
 
 
 Result:
+
 Thus, the program is verified successfully
  
 EXP NO:7 C PROGRAM TO PRINT TEN SPACE-SEPARATED INTEGERS     IN A SINGLE  LINE DENOTING THE FREQUENCY OF EACH DIGIT FROM 0 TO 3 .
@@ -47,22 +105,40 @@ Algorithm:
  
 Program:
 
-//type your code here
 
-
-
+```
+#include<stdio.h>
+#include<string.h> 
+int main()
+{
+    char a[50]; 
+    scanf("%s",a); 
+    int l=strlen(a); char h='0';
+    for(int i=0;i<4;i++)
+    {
+        int c=0;
+        for(int j=0;j<l;j++)
+        {
+            if(a[j]==h)
+            {
+                c+=1;
+                
+            }
+            
+        }
+        printf("%d ",c); 
+        h++;
+    }
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="855" height="157" alt="image" src="https://github.com/user-attachments/assets/375b3a13-d1fc-4608-9767-67d6f76b5ff1" />
 
 
 Result:
+
 Thus, the program is verified successfully
 
 EXP NO:8 C PROGRAM TO PRINT ALL OF ITS PERMUTATIONS IN STRICT LEXICOGRAPHICAL ORDER.
@@ -84,22 +160,76 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-//type your code here
-
-
-
+```
+#include<stdio.h> 
+#include<string.h> 
+#include<stdlib.h>
+int next_per(int n, char **s)
+{
+    for(int i = n - 1 ; i > 0 ; i--) 
+    if(strcmp(s[i],s[i-1]) > 0)
+    {
+        int j=i+1;
+        for(;j<n;j++) if (strcmp(s[j],s[i-1])<=0)
+        break; char *t=s[i-1];
+        s[i-1]=s[j-1];
+        s[j-1]=t;
+        for(;i<n-1;i++,n--)
+        {
+            t=s[i];
+            s[i]=s[n-1];
+            s[n-1]=t;
+            
+        }
+        return 1;
+        
+    }
+    for(int i=0;i<n-1;i++,n--)
+    {
+        char *t=s[i];
+        s[i]=s[n-1]; 
+        s[n-1]=t;
+        
+    }
+    return 0;
+    
+}
+int main()
+{
+    char **s; 
+    int n;
+    scanf("%d",&n);
+    s=calloc(n,sizeof(char*)); 
+    for(int i=0;i<n;i++)
+    {
+        s[i]=calloc(n,sizeof(char*)*5); 
+        scanf("%s",s[i]);
+        
+    }
+    do
+    {
+        for(int i=0;i<n;i++) 
+        printf("%s%c",s[i],i==n-1?'\n':' ');
+        
+    }
+    while(next_per(n,s));
+    {
+        for(int i=0;i<n;i++)
+        free (s[i]);
+        free(s);
+        return 0;
+        
+    }
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="857" height="275" alt="image" src="https://github.com/user-attachments/assets/766e34ab-68e7-450a-8f1a-63381b1693ea" />
 
 
 Result:
+
 Thus, the program is verified successfully
  
 EXP NO:9 C PROGRAM PRINT A PATTERN OF NUMBERS FROM 1 TO N AS
@@ -117,22 +247,36 @@ Algorithm:
  
 Program:
 
-//type your code here
-
-
-
+```
+#include<stdio.h>
+int main()
+{
+    int n,i,j,min;
+    scanf("%d",&n);
+    int len=n*2-1; for (i=0;i<len;i++)
+    {
+        for (j=0;j<len;j++)
+        {
+            min=i<j?i:j;
+            min=min<len-i-1?min:len-1-i; 
+            min=min<len-j-1?min:len-1-j; 
+            printf("%d ",n-min);
+            
+        }
+        printf("\n");
+        
+    }
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="855" height="500" alt="image" src="https://github.com/user-attachments/assets/5eb83e99-67b1-41b1-bd79-97179903fff6" />
 
 
 Result:
+
 Thus, the program is verified successfully
 
 EXP NO:10 C PROGRAM TO FIND A SQUARE  OF NUMBER USING FUNCTION WITHOUT ARGUMENTS WITH RETURN TYPE
@@ -156,47 +300,28 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+void square();
+int main(){
+    
+    square();
+    return 0;
+}
+void square(){
+    int a;
+    scanf("%d",&a);
+    float ans = a*a;
+    printf("The square of %d is : %.2f",a,ans);
+}
 
-
-
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="851" height="271" alt="image" src="https://github.com/user-attachments/assets/2a457f30-faf1-4f44-8bb7-231fbac5bcb1" />
 
 
 Result:
+
 Thus, the program is verified successfully
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
